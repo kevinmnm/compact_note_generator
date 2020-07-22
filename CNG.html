@@ -13,6 +13,10 @@
 
 <style>
 
+    * {
+        user-select: none;
+    }
+
 #body_Default {
    background-color: #ececec;
 }
@@ -23,6 +27,82 @@ Select {
 
 #body_Dark {
    background-color: rgb(39, 38, 38);
+}
+
+#stickyIcon1 {
+    position: fixed;
+    left: 0;
+    width: 50px;
+    height: 120px;
+    font-size: 70px;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    top: 50%;
+    z-index: 1;
+    line-height: 1.5;
+    cursor: pointer;
+    opacity: 0;
+}  
+
+#stickyIcon2 {
+    position: fixed;
+    right: 0;
+    width: 50px;
+    height: 120px;
+    font-size: 70px;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    top: 50%;
+    z-index: 1;
+    line-height: 1.5;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#stickyIcon1:hover,
+#stickyIcon2:hover {
+    opacity: 0.5;
+}
+
+#sticky1 {
+    position: fixed;
+    left: 55px;
+    top: 25%;
+    width: 400px;
+    height: 600px;
+    z-index: 1;
+    background-color: rgb(247, 247, 131);
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    font-size: 20px;
+    box-shadow: 0 0 15px black;
+    display: none;
+    color: black;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#sticky2 {
+    position: fixed;
+    right: 55px;
+    top: 25%;
+    width: 400px;
+    height: 600px;
+    z-index: 1;
+    background-color: rgb(151, 253, 151);
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    font-size: 20px;
+    box-shadow: 0 0 15px black;
+    display: none;
+    color: black;
+    outline: none;
 }
 
 #midDiv {
@@ -557,6 +637,25 @@ hr.new {
     background-color: black;
 }
 
+#org2 {
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(189, 109, 189);
+    text-align: center;
+    margin: auto;
+}
+
+#org2:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
 #onlyRequiredQuestion {
     text-align: center;
 }
@@ -762,6 +861,46 @@ hr.new {
     font-size: 30px;
 }
 
+#CPADivConditional {
+   width: 450px;
+   margin-right: auto;
+   margin-left: auto;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   font-size: 20px;
+   text-align: center;
+   opacity: 0.5;
+   background-color: rgb(255, 210, 255);
+   display: none;
+   padding: 0;
+   user-select: none;
+}
+
+#CPATemplateConditional {
+   border: solid 2px purple;
+   position: relative;
+   width: 100%;
+   border-collapse: collapse;
+   text-align: center;
+}
+
+#CPATemplateconditional select{
+    position: relative;
+    width: 100%;
+}
+
+#CPATemplateConditional th{
+    border: solid 1px purple;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#cHidden {
+    border-collapse: collapse;
+    width: 100%;
+    display: none;
+}
+
 #copayQuoteDiv {
    width: 450px;
    margin-right: auto;
@@ -903,6 +1042,7 @@ hr.new {
    color: black;
    font-weight: bold;
    background-color: white;
+   margin: 0;
 }
 
 textarea {
@@ -1187,7 +1327,6 @@ select:hover {
      0 10px 10px rgba(0,0,0,0.3);
 }
 
-
 #hiddenImportant {
   text-align: center;
   font: 800 40px/1 'Open Sans', sans-serif;
@@ -1235,9 +1374,6 @@ select:hover {
     background-color: red;
     font-size: 16px;
     overflow: hidden;
-}
-
-#ex:hover {
     cursor: pointer;
 }
 
@@ -3857,6 +3993,10 @@ select:hover {
 
 <body id='body_Default' onload='storageFunction(); bodyOnloadMode();'>
 
+<div id='stickyIcon1'>&#187;</div>
+<textarea id='sticky1' placeholder='Notes written here will be saved'></textarea>
+<div id='stickyIcon2'>&#171;</div>
+<textarea id='sticky2' placeholder='Notes written here will be saved'></textarea>
 
 <!-------------------------------------------------------------------------->
 <!-------------------------CODEPEN SNOWFLAKES------------------------------->
@@ -4146,7 +4286,7 @@ select:hover {
 
     <p><u>STEPS:</u></p>
     <ol>
-        <li>Input your name in "Note Entered By" field. <u>Your name will be saved. No need to re-write upon every refresh!</u></li>
+        <li>Input your name in "Note Entered By" field.</li>
         <li>Choose plan type from the dropdown. This will lock your choice to provide accurate template list.</li>
         <li>Input drug information.</li>
         <li>Choose your case outcome from dropdown menu. <u>Cases that only require 'DETAILED FREE-HAND NOTE' will not be on the list.</u></li>
@@ -4203,7 +4343,7 @@ select:hover {
     <div id='credit' onclick='credit()'>
         Made by Kevin Song
         <br>
-        Last Updated: 05/19/2020
+        Last Updated: 06/03/2020
     </div>
     </center>
 
@@ -4964,7 +5104,7 @@ select:hover {
 <div id="DTDiv">
    <table id='DTTemplate'>
    	<tr>
-   	   <th colspan='2' style='background-color: rgba(128, 0, 128, 0.425);'>Denial/Triage Template Questions: </th>
+   	   <th colspan='2' style='background-color: rgb(160, 94, 160);'>Denial/Triage Template Questions: </th>
 
 	</tr>
 	<tr>
@@ -5038,6 +5178,9 @@ select:hover {
 	   </th>
     </tr>
 ---->
+    <tr class='finalDhidden'>
+        <th class='DSec' colspan='2'>Final follow-up with patient</th>
+    </tr>
 	<tr>
 	   <th class='DSec'>At phone #: </th>
 	   <th>
@@ -5072,17 +5215,19 @@ select:hover {
         </th>
     </tr>
 	<tr>
-	   <th colspan='2' style='background-color: rgba(128, 0, 128, 0.425);'>Conversation/Voicemail Details:
-	   <br/>
-	   <textarea id='verySpec'></textarea>
+       <th colspan='2' style='background-color: rgb(160, 94, 160);'>Conversation/Voicemail Details:</th>
+    </tr>
+    <tr>
+        <th colspan='2' style='font-size:0;'>
+	        <textarea id='verySpec'></textarea>
 	   </th>
 	</tr>
 	<tr>
-	   <th colspan='2' style='background-color: rgba(128, 0, 128, 0.425);'>Denial/Triage Reason: </th>
+	   <th colspan='2' style='background-color: rgb(160, 94, 160); overflow:auto;'>Denial/Triage Reason: </th>
    	</tr>
 	<tr>
-	   <th colspan='2'>
-	   	<textarea id='verySpec2'></textarea>
+	   <th colspan='2' style='font-size:0;'>
+	   	    <textarea id='verySpec2'></textarea>
 	   </th>
 	</tr>
 	<tr>
@@ -5091,11 +5236,37 @@ select:hover {
 	   </th>
 	</tr>
 	<tr>
-	   <th colspan='2'>
+	   <th colspan='2' style='font-size:0;'>
 	   	<textarea id='dtResult'></textarea>
 	   </th>
 	</tr>
    </table>
+</div>
+
+<!----------CPA TEMPLATE (WHEN CPA ALREADY EXISTS)-------->
+<div id='CPADivConditional' onclick='cdc()'>
+    <table id='CPATemplateConditional'>
+        <tr>
+            <th class='cTh'>Was CPA already applied when you ran claim?</th>
+        </tr>
+        <tr>
+            <th>
+                <div id='org2' onclick='org2()'>&#63;</div>
+            </th>
+        </tr>
+        <tr>
+            <td class='cTd'>
+                <select class='cSelect' onchange='cpaConditional()'>
+                    <option>Choose</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </td>
+        </tr>
+        <tr id='cHidden'>
+            <td><a id='cHa' href='https://pronet.cvshealth.com/Gen2/Shared_Web_Apps/BV_Note_Creator_Copay_Template_V3.aspx' target='_blank'>Click here to Complete Copay Assistance Template!</a>
+        </tr>
+    </table>
 </div>
 
 <!----------------FURNISHED TEMPLATE------------------------------->
@@ -5811,6 +5982,38 @@ Referral Form and email it to RCC.<br/>Pend out 2 business days.</td>
             <td></td>
             <td class='updateDes'>Fixed minor cmk rx template bug.</td>
         </tr>
+        <tr>
+            <td class='updateDate'>5/21/2020</td>
+            <td class='updateDes'>Fixed minor typo error.</td>
+        </tr>
+        <tr>
+            <td class='updateDate'>5/28/2020</td>
+            <td class='updateDes'>Added cpa conditional template.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class='updateDes'>Disabled user-select for all elements.</td>
+        </tr>
+        <tr>
+            <td class='updateDate'>6/01/2020</td>
+            <td class='updateDes'>Triage/Denial template disables upon change.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class='updateDes'>Minor css update on tri/den template.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class='updateDes'>Added sticky note function.</td>
+        </tr>
+        <tr>
+            <td class='updateDate'>6/03/2020</td>
+            <td class='updateDes'>Added 'final follow-up..' title in ext triage temp.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class='updateDes'>Changed #CPADivConditional opacity to 0.5 from 0.3.</td>
+        </tr>
     </table>
     <center>
 </div>
@@ -5922,7 +6125,8 @@ function outcome() {
 	document.getElementById('CPADiv').style.display = 'none';
 	document.getElementById('copayQuoteDiv').style.display = 'none';
 	document.getElementById('NPrescriptionDiv').style.display = 'none';
-	document.getElementById('DTDiv').style.display = 'none';
+    document.getElementById('DTDiv').style.display = 'none';
+    document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '1') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -5932,6 +6136,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '2') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -5941,6 +6146,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'block'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '3') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -5950,6 +6156,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '4') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -5959,6 +6166,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '5') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -5968,6 +6176,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '6') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -5977,6 +6186,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '7') {
    document.getElementById('welcomeDiv').style.display = 'none';
@@ -5986,6 +6196,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'block';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'Caremark' && document.getElementById('mainSelect2').value == '8') {
    document.getElementById('welcomeDiv').style.display = 'none';
@@ -5995,6 +6206,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'block';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '0') {
    document.getElementById('welcomeDiv').style.display = 'none';
@@ -6004,6 +6216,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '1') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -6013,6 +6226,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'block';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
    }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '2') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -6022,6 +6236,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'block';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'block';
 }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '3') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -6031,6 +6246,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'block';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
 }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '4') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -6040,6 +6256,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'block';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
 }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '5') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -6049,6 +6266,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'block';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
 }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '6') {
    document.getElementById('welcomeDiv').style.display = 'block';
@@ -6058,6 +6276,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'block';
    document.getElementById('NPrescriptionDiv').style.display = 'block';
    document.getElementById('DTDiv').style.display = 'none';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
 }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '7') {
    document.getElementById('welcomeDiv').style.display = 'none';
@@ -6067,6 +6286,7 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'block';
+   document.getElementById('CPADivConditional').style.display = 'none'; 
 }
    else if (document.getElementById('mainSelect').value == 'NonCaremark' && document.getElementById('mainSelect2').value == '8') {
    document.getElementById('welcomeDiv').style.display = 'none';
@@ -6076,7 +6296,8 @@ function outcome() {
    document.getElementById('copayQuoteDiv').style.display = 'none';
    document.getElementById('NPrescriptionDiv').style.display = 'none';
    document.getElementById('DTDiv').style.display = 'block';
-   }
+   document.getElementById('CPADivConditional').style.display = 'none'; 
+}
 }
 
 //* --------WELCOME CALL TEMPLATE FUNCTION---------------------------------------------------*//
@@ -6486,6 +6707,7 @@ function internalTri() {
    if (document.getElementById('tempType').value == 'Triage') {
         document.getElementById('whichTri').style.display = 'table-row';
         finalDhide();
+        document.querySelector('#tempType').disabled = true;
    } else if (document.getElementById('tempType').value == 'Denial') {
         document.getElementById('whichTri').style.display = 'none';
         document.getElementById('externalTriagePharm').style.display = 'none';
@@ -6493,6 +6715,7 @@ function internalTri() {
         document.getElementById('atPhone').style.display = 'none';
         document.getElementById('internalTri').style.display = 'none';
         finalDshow();
+        document.querySelector('#tempType').disabled = true;
    } else if (document.getElementById('tempType').value =='Choose') {
         document.getElementById('whichTri').style.display = 'none';
         finalDhide();
@@ -6722,6 +6945,8 @@ var dark_mode = () => {
         e.target.style.background = 'none';
         e.target.style.color = 'white';
     });
+    stickyIcon1.style.color = 'white';
+    stickyIcon2.style.color = 'white';
 }
 
 var light_mode = () => {
@@ -6801,6 +7026,8 @@ var light_mode = () => {
         e.target.style.background = 'rgb(156, 195, 202)';
         e.target.style.color = 'white';
     });
+    stickyIcon1.style.color = 'black';
+    stickyIcon2.style.color = 'black';
 }
 
 function onlyRequired() {
@@ -7118,6 +7345,99 @@ function credit() {
 document.querySelector('#externalTriageForm').addEventListener('click', () => {
     open('https://thesource.cvshealth.com/nuxeo/thesource/#!/view?docid=57d7a11b-93ac-4fb1-b148-7ce4c99a91fd');
 });
+
+function cpaConditional(){
+    var cHid = document.querySelector('#cHidden');
+    var cHa = document.querySelector('#cHa');
+    if(document.querySelector('.cSelect').value == 'Yes'){
+        cHid.style.display = 'table-row';
+    } else {
+        document.querySelector('#cHidden').style.display = 'none';
+    }
+}
+
+function org2() {
+    alert('Only needed when CPA already existed on file and ran with claim.');
+}
+
+function cdc() {
+    document.querySelector('#CPADivConditional').style.opacity = '1';
+}
+
+function setting(){
+    hiddenFunc()
+}
+
+const stickyIcon1 = document.querySelector('#stickyIcon1');
+const stickyIcon2 = document.querySelector('#stickyIcon2');
+const sticky1 = document.querySelector('#sticky1');
+const sticky2 = document.querySelector('#sticky2');
+
+$(document).ready(function() {
+    $(stickyIcon1).on('click',()=>{
+        if (stickyIcon1.style.opacity == '1') {
+            stickyIcon1.style.opacity = '0';
+            sticky1.style.display = 'none';
+        } else if (stickyIcon1.style.opacity !== '1') {
+            stickyIcon1.style.opacity = '1';
+            sticky1.style.display = 'block';
+        }
+    });
+    $(stickyIcon1).on('mouseenter',()=>{
+        if (stickyIcon1.style.opacity !== '1') {
+            $(stickyIcon1).css('opacity','0.5');
+        }
+    });
+    $(stickyIcon1).on('mouseout',()=>{
+        if (stickyIcon1.style.opacity !== '1') {
+            $(stickyIcon1).css('opacity','0');
+        }
+    });
+
+    $(stickyIcon2).on('click',()=>{
+        if (stickyIcon2.style.opacity == '1') {
+            stickyIcon2.style.opacity = '0';
+            sticky2.style.display = 'none';
+        } else if (stickyIcon2.style.opacity !== '1') {
+            stickyIcon2.style.opacity = '1';
+            sticky2.style.display = 'block';
+        }
+    });
+    $(stickyIcon2).on('mouseenter',()=>{
+        if (stickyIcon2.style.opacity !== '1') {
+            $(stickyIcon2).css('opacity','0.5');
+        }
+    });
+    $(stickyIcon2).on('mouseout',()=>{
+        if (stickyIcon2.style.opacity !== '1') {
+            $(stickyIcon2).css('opacity','0');
+        }
+    });
+
+    sticky1.addEventListener('click', (e)=>{
+        e.target.style.zIndex = '2';
+        sticky2.style.zIndex = '1';
+    });
+
+    sticky2.addEventListener('click', (e)=>{
+        e.target.style.zIndex = '1';
+        sticky2.style.zIndex = '2';
+    });
+});
+
+$(document).ready(()=>{
+    $('#sticky1').on('input',()=>{
+        localStorage.sticky1Save = sticky1.value;
+    });
+
+    $('#sticky2').on('input',()=>{
+        localStorage.sticky2Save = sticky2.value;
+    });
+    sticky1.value = localStorage.sticky1Save;
+    sticky2.value = localStorage.sticky2Save;
+});
+
+
 </script>
 </body>
 
