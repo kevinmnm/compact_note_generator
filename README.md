@@ -1,4 +1,5 @@
 # **Compact Note Generator**
+> Application made easy to boost team's performance!
 ![CNG img](https://i.gyazo.com/93f9a9fc24c77ba88d031513d0b3eb8a.png)
 
 ## Table of Contents
