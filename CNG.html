@@ -1621,6 +1621,7 @@ select:hover {
    z-index: 4;
    overflow: auto;
    display: none;
+   overflow-x: hidden;
 }
 
 #updateListWrapper:hover {
@@ -6018,8 +6019,16 @@ Referral Form and email it to RCC.<br/>Pend out 2 business days.</td>
             <td></td>
             <td class='updateDes'>Changed #CPADivConditional opacity to 0.5 from 0.3.</td>
         </tr>
+        <tr>
+         <td class='updateDate'>9/16/2020</td>
+         <td class='updateDes'>Added Raleigh BU in No Rx on file.</td>
+        </tr>
+        <tr>
+         <td></td>
+         <td class='updateDes'>Made notes arrows visible on app load.</td>
+     </tr>
     </table>
-    <center>
+   </center>
 </div>
 
 <!--------------------------------------JAVASCRIPT-------------------------------------->
@@ -6030,6 +6039,13 @@ Referral Form and email it to RCC.<br/>Pend out 2 business days.</td>
 
 function storageFunction() {
     document.getElementById('yourName').value = localStorage.myName;
+    if (!localStorage.sticky1Save){
+      sticky1.value = '';
+    }
+
+    if (!localStorage.sticky2Save){
+      sticky2.value = '';
+    }
 }
 
 function setStorage() {
@@ -7428,16 +7444,6 @@ $(document).ready(function() {
         sticky2.style.zIndex = '2';
     });
 });
-
-window.onload = () => {
-   if (!localStorage.sticky1Save){
-      sticky1.value = '';
-   }
-
-   if (!localStorage.sticky2Save){
-      sticky2.value = '';
-   }
-}
 
 $(document).ready(()=>{
     $('#sticky1').on('input',()=>{
