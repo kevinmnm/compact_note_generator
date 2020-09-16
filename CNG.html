@@ -43,7 +43,7 @@ Select {
     z-index: 1;
     line-height: 1.5;
     cursor: pointer;
-    opacity: 0;
+    opacity: 0.1;
 }  
 
 #stickyIcon2 {
@@ -60,12 +60,12 @@ Select {
     z-index: 1;
     line-height: 1.5;
     cursor: pointer;
-    opacity: 0;
+    opacity: 0.1;
 }
 
 #stickyIcon1:hover,
 #stickyIcon2:hover {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 #sticky1 {
@@ -5495,6 +5495,10 @@ Referral Form and email it to RCC.<br/>Pend out 2 business days.</td>
                         <td><a href='mailto:LENEXATECHESCALATIONS@Caremark.com?subject=SUCUREMAIL BU: LNA / HBS: ????? / No Rx on file for: ????? '>Generate Email</a></td>
                 </tr>
                 <tr>
+                  <td>RALEIGH</td>
+                  <td><a href='mailto:Raleigh_Front_End_Box@CVSHealth.com?subject=SECUREMAIL BU: RALEIGH / HBS: ????? / No Rx on file for: ?????''>Generate Email</a></td>
+                </tr>
+                <tr>
                         <td>REDLANDS</td>
                         <td><a href='mailto:RedlandsRXTechTeam@CVSCaremark.com?subject=SECUREMAIL BU: RED / HBS: ????? / No Rx on file for: ????? '>Generate Email</a></td>
                 </tr>
@@ -5517,10 +5521,6 @@ Referral Form and email it to RCC.<br/>Pend out 2 business days.</td>
                 <tr>
                         <td>TROY</td>
                         <td><a href='mailto:SRXTroyFrontEnd@CVSHealth.com?subject=SECUREMAIL BU: TROY / HBS: ????? / No Rx on file for: ????? '>Generate Email</a></td>
-                </tr>
-                <tr>
-                        <td>RALEIGH</td>
-                        <td><a href='mailto:Raleigh_Front_End_Box@CVSHealth.com?subject=SECUREMAIL BU: RALEIGH / HBS: ????? / No Rx on file for: ?????''>Generate Email</a></td>
                 </tr>
         </table>
         <br/>
@@ -7428,6 +7428,16 @@ $(document).ready(function() {
         sticky2.style.zIndex = '2';
     });
 });
+
+window.onload = () => {
+   if (!localStorage.sticky1Save){
+      sticky1.value = '';
+   }
+
+   if (!localStorage.sticky2Save){
+      sticky2.value = '';
+   }
+}
 
 $(document).ready(()=>{
     $('#sticky1').on('input',()=>{
